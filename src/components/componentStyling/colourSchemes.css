@@ -1,0 +1,27 @@
+:root {
+  --bg: #004643;
+  --headline: #fffffe;
+  --paragraph: #f8f9fa;
+  --button: #f9bc60;
+  --backdrop: #001e1d;
+  --green: #abd1c6;
+  --red: #e16162;
+}
+.green-scheme {
+  --bg: #004643;
+  --headline: #fffffe;
+  --paragraph: #abd1c6;
+  --button: #f9bc60;
+  --backdrop: #001e1d;
+  --secondary: #abd1c6;
+  --error: #e16162;
+}
+
+.blue-orange-scheme {
+  --bg: #f8f5f2;
+  --headline: #232323;
+  --paragraph: #222525;
+  --button: #078080;
+  --secondary: #f45d48;
+  --error: #f8f5f2;
+}

@@ -1,0 +1,52 @@
+@import-normalize;
+@import "./components/componentStyling/colourSchemes.css";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap");
+body {
+  background-color: var(--bg);
+}
+.core-section {
+  background-color: var(--paragraph);
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
+  padding: 1%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  overflow: hidden;
+}
+.backdrop {
+  background-color: var(--backdrop);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  background-color: var(--bg);
+  color: white;
+  border-radius: 12px;
+  padding: 1%;
+}
+.selection-images {
+  width: 50%;
+}
+#expBar {
+  height: "25px";
+  border: "1px solid black";
+  width: "100%";
+}
+.custom-tooltip {
+  background-color: var(--paragraph);
+  padding: 10px;
+  text-align: left;
+}
+#mood-chart {
+  width: 100%;
+}
