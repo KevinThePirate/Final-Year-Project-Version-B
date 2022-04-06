@@ -27,12 +27,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 8;
 }
 .modal {
   background-color: var(--bg);
   color: white;
   border-radius: 12px;
   padding: 1%;
+  z-index: 10;
 }
 .selection-images {
   width: 50%;
@@ -49,4 +51,8 @@ body {
 }
 #mood-chart {
   width: 100%;
+}
+#image-display {
+  width: 50%;
+  z-index: -10;
 }

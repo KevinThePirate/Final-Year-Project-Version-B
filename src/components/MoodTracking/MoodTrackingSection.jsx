@@ -28,6 +28,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       <div className="custom-tooltip">
         <p>Date: {payload[0].payload.createdAt}</p>
         <p>Mood: {payload[0].payload.mood}</p>
+        <p>Mood Disp: {payload[0].payload.moodDisp}</p>
         <p>Numerical Score: {payload[0].payload.moodValue}</p>
         {payload[0].payload.log && <p>Log: {payload[0].payload.log}</p>}
       </div>
@@ -41,6 +42,7 @@ export default function MoodTrackingSection(props) {
   const moodCol = collection(db, `users/${props.userInfo.uid}/moods`);
   let totalIndex = 0;
   let moodVal = "";
+  let moodDisp = "";
   let todaysDate = new Date().toDateString();
   const [todaysCheckin, checkInToday] = useState(false);
 
@@ -76,18 +78,23 @@ export default function MoodTrackingSection(props) {
         switch (mood) {
           case "Great":
             moodVal = 5;
+            moodDisp = "happy";
             break;
           case "Good":
             moodVal = 4;
+            moodDisp = "happy";
             break;
           case "Eh":
             moodVal = 3;
+            moodDisp = "neutral";
             break;
           case "Not Great":
             moodVal = 2;
+            moodDisp = "sad";
             break;
           case "Terrible":
             moodVal = 1;
+            moodDisp = "sad";
             break;
           default:
             moodVal = 3;
@@ -96,6 +103,7 @@ export default function MoodTrackingSection(props) {
           name: mood,
           mood: mood,
           moodValue: moodVal,
+          moodDisp: moodDisp,
           createdAt: todaysDate,
           log: journalEntry,
           index: totalIndex + 1,

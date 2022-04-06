@@ -18,9 +18,12 @@ export default function CreatePet(props) {
   const [imageArray, setImageArray] = useState([]);
   const [chosenPet, setChosenPet] = useState("");
   const [sliderVal, setSliderVal] = useState(0);
-  const handleChange = (e) => {
-    console.log("echo");
-    setChosenPet(e.target.value);
+  const handleChange = (obj) => {
+    console.log(obj);
+    setChosenPet(obj);
+    /*console.log(typeof e.target.value);
+    console.log(imageArray);
+    setChosenPet(e.target.value);*/
   };
   const handleSlider = (e) => {
     setSliderVal(e.target.value);
@@ -31,11 +34,15 @@ export default function CreatePet(props) {
       await addDoc(props.petCol, {
         petName,
         imageUrl: chosenPet,
+        happy: chosenPet.happy,
+        sad: chosenPet.sad,
+        neutral: chosenPet.neutral,
+        siting: chosenPet.sitting,
         level: 5,
         exp: 0,
         sliderVal,
       });
-      setPetName("");
+      //setPetName("");
       props.setPetExists(true);
     }
     console.log("Submitted");
@@ -45,7 +52,7 @@ export default function CreatePet(props) {
     let arr = [];
     getDocs(petImagesCol).then((snapshot) => {
       snapshot.docs.forEach((doc) => {
-        arr.push(doc.data().url);
+        arr.push(doc.data());
       });
       setImageArray(arr);
       console.log({ imageArray });
@@ -75,7 +82,7 @@ export default function CreatePet(props) {
                   }}>
                   <ImageOptions
                     image={image}
-                    handleChange={handleChange}
+                    handleChange={() => handleChange(image)}
                     index={index}
                     key={index}
                   />

@@ -15,6 +15,8 @@ export default function VirtualPetHUD(props) {
   const [vpID, setVpID] = useState("");
   const petInfo = props.petInfo;
   const levelInfoCol = collection(db, "levelInfo");
+  const moodCol = collection(db, `users/${props.userInfo.uid}/moods`);
+  const [moodDisp, setMoodDisp] = useState("");
   const getCurrentLvl = (q) => {
     getDocs(q).then((snapshot) => {
       setCurrentLevelInfo(snapshot.docs[0].data());
@@ -28,6 +30,30 @@ export default function VirtualPetHUD(props) {
       );
       getDocs(currentLevelQ).then((snapshot) => {
         setCurrentLevelInfo(snapshot.docs[0].data());
+      });
+
+      getDocs(moodCol).then((snapshot) => {
+        let leng = snapshot.docs.length - 1;
+        const displayImage = query(moodCol, where("index", "==", leng));
+        getDocs(displayImage).then((snapshot) => {
+          //  console.log(leng);
+          const displayMood = snapshot.docs[0].data().moodDisp;
+          switch (displayMood) {
+            case "happy":
+              setMoodDisp(petInfo.happy);
+              break;
+            case "neutral":
+              setMoodDisp(petInfo.neutral);
+              break;
+            case "sad":
+              setMoodDisp(petInfo.sad);
+              break;
+            default:
+              setMoodDisp(petInfo.sitting);
+          }
+
+          //console.log(snapshot.docs[0].data().moodDisp);
+        });
       });
     } else {
       console.log("Waiting...");
@@ -77,12 +103,12 @@ export default function VirtualPetHUD(props) {
       {currentLevelInfo.level ? (
         <div>
           <section>
-            {props.petInfo.imageUrl ? (
+            {props.petInfo.neutral ? (
               <img
-                src={props.petInfo.imageUrl}
+                id="image-display"
+                src={moodDisp}
                 style={{
-                  border: "5px solid red",
-                  filter: `hue-rotate(${parseInt(props.sliderVal)}deg)`,
+                  filter: `hue-rotate(${parseInt(props.petInfo.sliderVal)}deg)`,
                 }}
                 alt="Your Virtual Pet"
               />
@@ -93,8 +119,8 @@ export default function VirtualPetHUD(props) {
           <section>
             <div>Name: {props.petInfo.petName}</div>
             <div>Level: {props.petInfo.level} </div>
-            <div></div>
-            <div>Slider: {props.petInfo.sliderVal} </div>
+            <div>Slider: {parseInt(props.petInfo.sliderVal)}deg </div>
+            <div>Type Of: {typeof parseInt(props.sliderVal)}</div>
             <div>
               Exp: {props.petInfo.exp} / {currentLevelInfo.expRequired}
             </div>

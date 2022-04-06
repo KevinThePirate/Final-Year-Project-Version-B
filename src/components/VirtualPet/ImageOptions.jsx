@@ -11,7 +11,7 @@ export function ImageOptions({ image, handleChange, index }) {
         key={index + "-Radio"}
       />
       <img
-        src={image}
+        src={image.happy}
         key={index + "image-url"}
         alt="Pet Option"
         className="selection-images"
