@@ -198,6 +198,14 @@ function App() {
           </nav>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             <SwiperSlide>
+              <VirtualPet
+                userInfo={userInfo}
+                ref={petRef}
+                petRef={petRef}
+                petInfoRef={petInfoRef}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
               <HabitSection
                 userInfo={userInfo}
                 userItems={userItems}
@@ -210,14 +218,6 @@ function App() {
                 petInfoRef={petInfoRef.current}
                 closestNumber={closestNumber}
                 id="Habit-Section"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <VirtualPet
-                userInfo={userInfo}
-                ref={petRef}
-                petRef={petRef}
-                petInfoRef={petInfoRef}
               />
             </SwiperSlide>
             <SwiperSlide>
