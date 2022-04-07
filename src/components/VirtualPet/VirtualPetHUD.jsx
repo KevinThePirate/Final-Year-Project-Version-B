@@ -34,8 +34,12 @@ export default function VirtualPetHUD(props) {
 
       getDocs(moodCol).then((snapshot) => {
         let leng = snapshot.docs.length - 1;
-        console.log({ leng });
         if (leng < 1) {
+          leng = 1;
+        }
+        console.log({ leng });
+        if (snapshot.docs.length < 1) {
+          console.log("trig");
           setMoodDisp(petInfo.neutral);
         } else {
           const displayImage = query(moodCol, where("index", "==", leng));
