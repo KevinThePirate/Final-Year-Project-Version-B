@@ -34,9 +34,6 @@ export default function HabitSection(props) {
   };
   return (
     <div className="core-section" id="habit-secton">
-      <p> User: {props.userInfo.displayName}</p>
-      <p> ID: {props.userInfo.uid}</p>
-      <button onClick={handleSignOut}>Sign Out!</button>
       <h2>Daily Habits:</h2>
       {props.userItems.map((item) => (
         <LineItem

@@ -34,26 +34,31 @@ export default function VirtualPetHUD(props) {
 
       getDocs(moodCol).then((snapshot) => {
         let leng = snapshot.docs.length - 1;
-        const displayImage = query(moodCol, where("index", "==", leng));
-        getDocs(displayImage).then((snapshot) => {
-          //  console.log(leng);
-          const displayMood = snapshot.docs[0].data().moodDisp;
-          switch (displayMood) {
-            case "happy":
-              setMoodDisp(petInfo.happy);
-              break;
-            case "neutral":
-              setMoodDisp(petInfo.neutral);
-              break;
-            case "sad":
-              setMoodDisp(petInfo.sad);
-              break;
-            default:
-              setMoodDisp(petInfo.sitting);
-          }
+        console.log({ leng });
+        if (leng < 1) {
+          setMoodDisp(petInfo.neutral);
+        } else {
+          const displayImage = query(moodCol, where("index", "==", leng));
+          getDocs(displayImage).then((snapshot) => {
+            console.log(snapshot.docs[0].data());
+            const displayMood = snapshot.docs[0].data().moodDisp;
+            switch (displayMood) {
+              case "happy":
+                setMoodDisp(petInfo.happy);
+                break;
+              case "neutral":
+                setMoodDisp(petInfo.neutral);
+                break;
+              case "sad":
+                setMoodDisp(petInfo.sad);
+                break;
+              default:
+                setMoodDisp(petInfo.sitting);
+            }
 
-          //console.log(snapshot.docs[0].data().moodDisp);
-        });
+            //console.log(snapshot.docs[0].data().moodDisp);
+          });
+        }
       });
     } else {
       console.log("Waiting...");
@@ -119,8 +124,6 @@ export default function VirtualPetHUD(props) {
           <section>
             <div>Name: {props.petInfo.petName}</div>
             <div>Level: {props.petInfo.level} </div>
-            <div>Slider: {parseInt(props.petInfo.sliderVal)}deg </div>
-            <div>Type Of: {typeof parseInt(props.sliderVal)}</div>
             <div>
               Exp: {props.petInfo.exp} / {currentLevelInfo.expRequired}
             </div>

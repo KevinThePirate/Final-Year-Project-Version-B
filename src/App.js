@@ -33,6 +33,10 @@ import HabitSection from "./components/HabitSection";
 import MoodTrackingSection from "./components/MoodTracking/MoodTrackingSection";
 import VirtualPet from "./components/VirtualPet/VirtualPet";
 import ThemeSwitcher from "./components/ThemeSwitcher";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
 
 function closestNumber(n, m) {
   // find the quotient
@@ -182,25 +186,44 @@ function App() {
     <div className="App">
       {userInfo.uid ? (
         <div style={{ color: "white" }}>
-          <HabitSection
-            userInfo={userInfo}
-            userItems={userItems}
-            getUserData={getUserData}
-            handleDelete={handleDelete}
-            handleCheckIn={handleCheckIn}
-            signUserOut={signUserOut}
-            standHabits={standHabits}
-            xpUp={petRef.current}
-            petInfoRef={petInfoRef.current}
-            closestNumber={closestNumber}
-          />
-          <VirtualPet
-            userInfo={userInfo}
-            ref={petRef}
-            petRef={petRef}
-            petInfoRef={petInfoRef}
-          />
-          <MoodTrackingSection userInfo={userInfo} xpUp={petRef.current} />
+          <nav id="navbar">
+            <div>
+              <h1>Observo</h1>
+            </div>
+            <div>
+              <p> User: {userInfo.displayName}</p>
+              <p> ID: {userInfo.uid}</p>
+              <button onClick={signUserOut}>Sign Out!</button>
+            </div>
+          </nav>
+          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            <SwiperSlide>
+              <HabitSection
+                userInfo={userInfo}
+                userItems={userItems}
+                getUserData={getUserData}
+                handleDelete={handleDelete}
+                handleCheckIn={handleCheckIn}
+                signUserOut={signUserOut}
+                standHabits={standHabits}
+                xpUp={petRef.current}
+                petInfoRef={petInfoRef.current}
+                closestNumber={closestNumber}
+                id="Habit-Section"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <VirtualPet
+                userInfo={userInfo}
+                ref={petRef}
+                petRef={petRef}
+                petInfoRef={petInfoRef}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <MoodTrackingSection userInfo={userInfo} xpUp={petRef.current} />
+            </SwiperSlide>
+          </Swiper>
         </div>
       ) : (
         <SignIn signInWithGoogle={signInWithGoogle} className="core-section" />
