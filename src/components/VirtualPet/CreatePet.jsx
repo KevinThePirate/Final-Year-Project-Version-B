@@ -9,7 +9,7 @@ import {
   updateDoc,
   addDoc,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { db } from "../../firebase";
 
 export default function CreatePet(props) {
@@ -18,6 +18,7 @@ export default function CreatePet(props) {
   const [imageArray, setImageArray] = useState([]);
   const [chosenPet, setChosenPet] = useState("");
   const [sliderVal, setSliderVal] = useState(0);
+  const inputRef = useRef(null);
   const handleChange = (obj) => {
     console.log(obj);
     setChosenPet(obj);
@@ -27,6 +28,14 @@ export default function CreatePet(props) {
   };
   const handleSlider = (e) => {
     setSliderVal(e.target.value);
+  };
+  const handleNameChange = (e) => {
+    console.log(e.target.value);
+    setPetName(e.target.value);
+    console.log(inputRef);
+    if (inputRef !== null) {
+      inputRef.current.focus();
+    }
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,8 +78,9 @@ export default function CreatePet(props) {
               type="text"
               placeholder="Fido"
               value={petName}
-              key={petName}
-              onChange={(e) => setPetName(e.target.value)}
+              key="petName-input"
+              onChange={handleNameChange}
+              ref={inputRef}
             />
           </div>
           <div>
