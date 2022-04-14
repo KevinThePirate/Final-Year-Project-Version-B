@@ -28,6 +28,8 @@ function VirtualPet(props) {
       }
     });
   }, []);
+
+  //console.log(props.petInfoRef.current);
   useEffect(() => {
     getSetPetInfo();
   }, [petExists]);

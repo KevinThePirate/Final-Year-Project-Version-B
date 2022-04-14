@@ -1,6 +1,7 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
+import { MdAddCircle, MdAddCircleOutline } from "react-icons/md";
 import { db } from "../firebase";
 import AddItem from "./AddItem";
 import LineItem from "./LineItem";
@@ -33,7 +34,7 @@ export default function HabitSection(props) {
     });
   };
   return (
-    <div className="core-section" id="habit-secton">
+    <div className="core-section" id="Habit-Section">
       <h2>Daily Habits:</h2>
       {props.userItems.map((item) => (
         <LineItem
@@ -46,6 +47,7 @@ export default function HabitSection(props) {
           getSentence={() => getSentence(item.title)}
         />
       ))}
+      <MdAddCircle onClick={open} id="add-button" />
       <button onClick={open}>Add Item!</button>
       {modalOpen && (
         <div>

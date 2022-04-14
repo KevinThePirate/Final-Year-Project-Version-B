@@ -3,6 +3,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { db } from "../firebase";
 import "./componentStyling/LineItem.css";
+import {
+  MdCheckBoxOutlineBlank,
+  MdCheckBox,
+  MdDeleteForever,
+} from "react-icons/md";
 
 export default function LineItem(props) {
   const dateObj = new Date();
@@ -49,20 +54,28 @@ export default function LineItem(props) {
   }, []);
   return (
     <div className={classList + " line-item"}>
-      <p>{props.item.title} </p>
-      {props.item.precreated && (
-        <>
-          <p>Today: {equation.replace("X", props.item.checkInCounter)}</p>
-        </>
-      )}
-      <p>Total Count: {props.item.checkInCounter}</p>
-      <button onClick={checkInSelf} className="complete-button">
-        {" "}
-        Completed{" "}
-      </button>
-      <button onClick={deleteSelf} className="delete-button">
-        Remove{" "}
-      </button>
+      <div>
+        <p>{props.item.title} </p>
+      </div>
+      <div>
+        {props.item.precreated && (
+          <>
+            <p>Today: {equation.replace("X", props.item.checkInCounter)}</p>
+          </>
+        )}
+        <p>Total Check-Ins: {props.item.checkInCounter}</p>
+      </div>
+      <div>
+        {classList == "checked-in" ? (
+          <MdCheckBox onClick={checkInSelf} className="line-button" />
+        ) : (
+          <MdCheckBoxOutlineBlank
+            onClick={checkInSelf}
+            className="line-button"
+          />
+        )}
+        <MdDeleteForever onClick={deleteSelf} className="line-button" />
+      </div>
     </div>
   );
 }

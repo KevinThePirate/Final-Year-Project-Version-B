@@ -1,14 +1,15 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Backdrop from "./Backdrop";
+import GoogleButton from "react-google-button";
 
 const dropIn = {
   hidden: {
-    y: "-100vh",
+    scale: "0%",
     opacity: 0,
   },
   visible: {
-    y: "0",
+    scale: "100%",
     opacity: 1,
     transition: {
       duration: 0.1,
@@ -18,7 +19,7 @@ const dropIn = {
     },
   },
   exit: {
-    y: "100vh",
+    scale: "0%",
     opacity: 0,
   },
 };
@@ -26,23 +27,28 @@ const dropIn = {
 export default function SignIn(props, { handleClose, text }) {
   return (
     <Backdrop onClick={handleClose}>
+      <img src="https://i.imgur.com/My0ZbeY.png" id="sign-in-image" />
+      <p id="sign-in-subtitle">Begin Your Journey With...</p>
+      <h2 id="sign-in-title">Observo</h2>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="modal core-section"
         variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit">
         <div>
-          <h2>You're Not Signed In</h2>
-          <motion.button
-            className="save-button"
+          <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={props.signInWithGoogle}>
             {" "}
-            Sign In With Google!{" "}
-          </motion.button>
+            <GoogleButton
+              type="dark" // can be light or dark
+              onClick={() => {
+                console.log("Google button clicked");
+              }}
+            />{" "}
+          </motion.div>
         </div>
       </motion.div>
     </Backdrop>

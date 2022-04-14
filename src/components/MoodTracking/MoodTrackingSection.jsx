@@ -135,7 +135,10 @@ export default function MoodTrackingSection(props) {
           {todaysCheckin == true ? (
             <div id="mood-chart">
               <LineChart
-                width={600}
+                id="mood-chart"
+                width={
+                  document.getElementById("mood-section").offsetWidth * 0.9
+                }
                 height={300}
                 data={moodLog}
                 margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>

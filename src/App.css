@@ -2,35 +2,36 @@
 @import "./components/componentStyling/colourSchemes.css";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap");
 body {
-  background-color: var(--bg);
+  background: linear-gradient(
+    158.87deg,
+    rgba(123, 160, 253, 0.4) 34.88%,
+    rgba(189, 138, 253, 0.4) 97.11%
+  );
   margin: 0;
+  overflow: hidden;
 }
-.core-section {
-  background-color: var(--paragraph);
-  width: 50%;
-  height: 40vh;
-  text-align: center;
-  margin: 10px auto;
-  padding: 1%;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: black;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.base-layer {
+  background: linear-gradient(110.63deg, #7ba0fd 14.7%, #bc8bfd 82.18%);
 }
-.core-section::-webkit-scrollbar {
-  display: none;
+.log-out-button {
+  position: absolute;
+  right: 50px;
+  top: 90vh;
+  width: 100px;
+  height: 50px;
+  background: #ffffff;
+  border-radius: 4px;
+  z-index: 1000;
 }
-#Habit-Section {
-  justify-self: center;
+#mood-chart {
+  width: 40%;
 }
 .backdrop {
-  background-color: var(--backdrop);
+  background: linear-gradient(
+    158.87deg,
+    rgba(123, 160, 253, 0.4) 34.88%,
+    rgba(189, 138, 253, 0.4) 97.11%
+  );
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +43,7 @@ body {
   z-index: 8;
 }
 .modal {
-  background-color: var(--bg);
+  background-color: #bfafff;
   color: white;
   border-radius: 12px;
   padding: 1%;
@@ -65,7 +66,7 @@ body {
   width: 100%;
 }
 #image-display {
-  height: 25vh;
+  height: 40vh;
   z-index: -10;
 }
 #navbar {
@@ -76,4 +77,112 @@ body {
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.save-button {
+  background: #f7f7f7;
+  border-radius: 34px;
+  padding: 10px 50px;
+  color: #a393fd;
+}
+/* SIGN IN SCREEN */
+#sign-in-title {
+  position: absolute;
+  width: 335px;
+  height: 108px;
+  top: 20%;
+  text-align: center;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 72px;
+  line-height: 108px;
+  /* identical to box height */
+
+  letter-spacing: 0.025em;
+
+  color: #ffffff;
+}
+#sign-in-subtitle {
+  position: absolute;
+  height: 20px;
+  top: 25%;
+  text-align: left;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 20px;
+  /* identical to box height */
+
+  letter-spacing: 0.025em;
+
+  color: #ffffff;
+
+  box-sizing: border-box;
+}
+#sign-in-image {
+  width: 50%;
+  position: absolute;
+  left: 0;
+  bottom: -10%;
+}
+
+/* Core Sections */
+.core-section {
+  background: #e7ecfd;
+  border-radius: 34px;
+  width: 100%;
+  height: 100vh;
+  min-height: 40vh;
+  text-align: center;
+  margin: 10px auto;
+  padding: 1%;
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  color: black;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  color: #496ecb;
+}
+.core-section::-webkit-scrollbar {
+  display: none;
+}
+.section-title {
+  position: absolute;
+  text-align: center;
+  width: 50%;
+  left: 25%;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4vw;
+  line-height: 93px;
+  letter-spacing: 0.025em;
+  color: #ffffff;
+}
+
+#add-button {
+  width: 50px;
+  height: 50px;
+  color: linear-gradient(111.33deg, #819efd 16.19%, #bb8bfd 86.18%);
+}
+
+@media (min-width: 1200px) {
+  #sign-in-image {
+    width: 25%;
+  }
+  .core-section {
+    margin-top: 10%;
+  }
+}
+.app {
+  background: linear-gradient(110.63deg, #7ba0fd 14.7%, #bc8bfd 82.18%);
 }

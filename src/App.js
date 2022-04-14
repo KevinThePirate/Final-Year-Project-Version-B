@@ -37,6 +37,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+import TutorialSheet from "./components/TutorialSheet";
+import LoadingBlock from "./components/LoadingBlock";
 
 function closestNumber(n, m) {
   // find the quotient
@@ -177,27 +179,41 @@ function App() {
     .catch((error) => console.log(error.message));*/
   useEffect(() => getUserData(), [userInfo, handleDelete]);
 
+  const [loadingNow, setLoadingNow] = useState(false);
+  useEffect(() => {
+    setInterval(() => {
+      setLoadingNow(!loadingNow);
+      console.log("flip");
+    }, 5000);
+  }, []);
+
   useEffect(() => getStandardHabits(), []);
 
   const petRef = useRef(null);
   const petInfoRef = useRef(null);
+  //console.log({ userInfo });
 
   return (
     <div className="App">
       {userInfo.uid ? (
-        <div style={{ color: "white" }}>
-          <nav id="navbar">
-            <div>
-              <h1>Observo</h1>
-            </div>
-            <div>
-              <p> User: {userInfo.displayName}</p>
-              <p> ID: {userInfo.uid}</p>
-              <button onClick={signUserOut}>Sign Out!</button>
-            </div>
-          </nav>
+        <div className="base-layer" style={{ color: "white" }}>
+          <div class="loading"></div>
+          <button onClick={signUserOut} className="log-out-button">
+            Sign Out!
+          </button>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            {!loadingNow && (
+              <SwiperSlide>
+                <LoadingBlock />
+              </SwiperSlide>
+            )}
+            {userItems.length == 0 && (
+              <SwiperSlide>
+                <TutorialSheet />
+              </SwiperSlide>
+            )}
             <SwiperSlide>
+              <h1 className="section-title">Virtual Pet</h1>
               <VirtualPet
                 userInfo={userInfo}
                 ref={petRef}
@@ -205,24 +221,33 @@ function App() {
                 petInfoRef={petInfoRef}
               />
             </SwiperSlide>
-            <SwiperSlide>
-              <HabitSection
-                userInfo={userInfo}
-                userItems={userItems}
-                getUserData={getUserData}
-                handleDelete={handleDelete}
-                handleCheckIn={handleCheckIn}
-                signUserOut={signUserOut}
-                standHabits={standHabits}
-                xpUp={petRef.current}
-                petInfoRef={petInfoRef.current}
-                closestNumber={closestNumber}
-                id="Habit-Section"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <MoodTrackingSection userInfo={userInfo} xpUp={petRef.current} />
-            </SwiperSlide>
+            {petInfoRef.current !== null && (
+              <SwiperSlide>
+                <h1 className="section-title">Habits</h1>
+                <HabitSection
+                  userInfo={userInfo}
+                  userItems={userItems}
+                  getUserData={getUserData}
+                  handleDelete={handleDelete}
+                  handleCheckIn={handleCheckIn}
+                  signUserOut={signUserOut}
+                  standHabits={standHabits}
+                  xpUp={petRef.current}
+                  petInfoRef={petInfoRef.current}
+                  closestNumber={closestNumber}
+                  id="Habit-Section"
+                />
+              </SwiperSlide>
+            )}
+            {petInfoRef.current !== null && (
+              <SwiperSlide>
+                <h1 className="section-title">Moods</h1>
+                <MoodTrackingSection
+                  userInfo={userInfo}
+                  xpUp={petRef.current}
+                />
+              </SwiperSlide>
+            )}
           </Swiper>
         </div>
       ) : (
