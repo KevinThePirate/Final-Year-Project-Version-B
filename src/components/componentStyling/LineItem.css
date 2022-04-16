@@ -10,16 +10,17 @@
 .line-item {
   background-color: var(--headline);
   width: 50%;
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
   margin-left: 25%;
   margin-right: 25%;
-  border-radius: 6px;
-  border: 3px solid var(--backdrop);
+  border-radius: 20px;
+  border: 1px solid lightgray;
   color: var(--backdrop);
   transition: 0.1s;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
 }
 .line-item:hover {
@@ -34,4 +35,10 @@
 .line-button {
   width: 50px;
   height: 50px;
+}
+@media (max-width: 800px) {
+  .line-item {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
 }

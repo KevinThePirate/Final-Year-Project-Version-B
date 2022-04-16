@@ -39,6 +39,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import TutorialSheet from "./components/TutorialSheet";
 import LoadingBlock from "./components/LoadingBlock";
+import { Button } from "@mui/material";
 
 function closestNumber(n, m) {
   // find the quotient
@@ -244,6 +245,7 @@ function App() {
                 <h1 className="section-title">Moods</h1>
                 <MoodTrackingSection
                   userInfo={userInfo}
+                  petInfoRef={petInfoRef.current}
                   xpUp={petRef.current}
                 />
               </SwiperSlide>

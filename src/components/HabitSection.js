@@ -48,7 +48,6 @@ export default function HabitSection(props) {
         />
       ))}
       <MdAddCircle onClick={open} id="add-button" />
-      <button onClick={open}>Add Item!</button>
       {modalOpen && (
         <div>
           <AddItem

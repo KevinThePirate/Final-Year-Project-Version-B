@@ -113,14 +113,19 @@ export default function VirtualPetHUD(props) {
         <div>
           <section>
             {props.petInfo.neutral ? (
-              <img
-                id="image-display"
-                src={moodDisp}
-                style={{
-                  filter: `hue-rotate(${parseInt(props.petInfo.sliderVal)}deg)`,
-                }}
-                alt="Your Virtual Pet"
-              />
+              <>
+                <p class="triangle-right">How Are You Feeling Today? </p>
+                <img
+                  id="image-display"
+                  src={moodDisp}
+                  style={{
+                    filter: `hue-rotate(${parseInt(
+                      props.petInfo.sliderVal
+                    )}deg)`,
+                  }}
+                  alt="Your Virtual Pet"
+                />
+              </>
             ) : (
               <img src="https://s-media-cache-ak0.pinimg.com/236x/d2/26/a0/d226a076b1079d268f6af79c3f77aa20--baby-huskies-huskies-puppies.jpg" />
             )}
@@ -137,6 +142,7 @@ export default function VirtualPetHUD(props) {
                 height: "25px",
                 border: "1px solid black",
                 width: "100%",
+                borderRadius: "10px",
               }}>
               {" "}
               <div
@@ -145,7 +151,8 @@ export default function VirtualPetHUD(props) {
                   width:
                     (props.petInfo.exp / currentLevelInfo.expRequired) * 100 +
                     "%",
-                  background: "green",
+                  background: "#369A96",
+                  borderRadius: "10px",
                   transition: "1s",
                 }}></div>
             </div>
