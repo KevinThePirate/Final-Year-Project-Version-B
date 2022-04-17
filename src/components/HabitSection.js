@@ -35,7 +35,6 @@ export default function HabitSection(props) {
   };
   return (
     <div className="core-section" id="Habit-Section">
-      <h2>Daily Habits:</h2>
       {props.userItems.map((item) => (
         <LineItem
           key={item.id}

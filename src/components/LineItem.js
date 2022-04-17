@@ -7,7 +7,15 @@ import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
   MdDeleteForever,
+  MdExpandMore,
 } from "react-icons/md";
+import {
+  Accordion,
+  AccordionSummary,
+  ExpandMoreIcon,
+  Typography,
+  AccordionDetails,
+} from "@mui/material";
 
 export default function LineItem(props) {
   const dateObj = new Date();
@@ -53,19 +61,22 @@ export default function LineItem(props) {
     getSentence(props.item.title);
   }, []);
   return (
-    <div className={classList + " line-item"}>
-      <div>
-        <p>{props.item.title} </p>
-      </div>
-      <div>
+    <Accordion
+      className={classList + " line-item"}
+      style={{ borderRadius: "20px", border: "none" }}>
+      <AccordionSummary
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+        expandIcon={<MdExpandMore />}>
+        <Typography>{props.item.title}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
         {props.item.precreated && (
           <>
             <p>Today: {equation.replace("X", props.item.checkInCounter)}</p>
           </>
         )}
         <p>Total Check-Ins: {props.item.checkInCounter}</p>
-      </div>
-      <div>
         {classList == "checked-in" ? (
           <MdCheckBox onClick={checkInSelf} className="line-button" />
         ) : (
@@ -75,7 +86,7 @@ export default function LineItem(props) {
           />
         )}
         <MdDeleteForever onClick={deleteSelf} className="line-button" />
-      </div>
-    </div>
+      </AccordionDetails>
+    </Accordion>
   );
 }

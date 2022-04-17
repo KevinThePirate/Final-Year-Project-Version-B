@@ -141,8 +141,9 @@ export default function VirtualPetHUD(props) {
               style={{
                 height: "25px",
                 border: "1px solid black",
-                width: "100%",
-                borderRadius: "10px",
+                width: "50%",
+                margin: "auto",
+                borderRadius: "20px",
               }}>
               {" "}
               <div
@@ -152,7 +153,7 @@ export default function VirtualPetHUD(props) {
                     (props.petInfo.exp / currentLevelInfo.expRequired) * 100 +
                     "%",
                   background: "#369A96",
-                  borderRadius: "10px",
+                  borderRadius: "20px",
                   transition: "1s",
                 }}></div>
             </div>

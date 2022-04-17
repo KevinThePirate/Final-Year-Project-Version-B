@@ -132,9 +132,9 @@ body {
 /* Core Sections */
 .core-section {
   background: #e7ecfd;
-  border-radius: 34px;
+  border-radius: 34px 34px 0px 0px;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   min-height: 40vh;
   text-align: center;
   margin: 10px auto;
@@ -157,21 +157,21 @@ body {
 .section-title {
   position: absolute;
   text-align: center;
-  width: 50%;
-  left: 25%;
+  width: 100%;
+  top: -2vh;
 
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 4vw;
+  font-size: 6vw;
   line-height: 93px;
   letter-spacing: 0.025em;
   color: #ffffff;
 }
 
 #add-button {
-  width: 50px;
-  height: 50px;
+  min-width: 65px;
+  min-height: 65px;
   color: linear-gradient(111.33deg, #819efd 16.19%, #bb8bfd 86.18%);
 }
 #mood-input {
@@ -182,7 +182,7 @@ body {
   display: inline-block;
   text-align: center;
   width: auto;
-  max-width: 30%;
+  max-width: clamp(5%, 7%, 20%);
 }
 .mood-button-element {
   height: 50px;
@@ -195,6 +195,7 @@ body {
   justify-items: center;
   text-align: center;
   width: 100%;
+  background: #aab8ff;
 }
 #mood-enter-card div {
   margin: auto;

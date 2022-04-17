@@ -171,7 +171,15 @@ export default function MoodTrackingSection(props) {
             <div id="mood-input">
               <div>
                 <p class="triangle-right">How Are You Feeling Today? </p>
-                <img src={props.petInfoRef.siting} id="mood-image" />
+                <img
+                  src={props.petInfoRef.siting}
+                  style={{
+                    filter: `hue-rotate(${parseInt(
+                      props.petInfoRef.sliderVal
+                    )}deg)`,
+                  }}
+                  id="mood-image"
+                />
               </div>
               <TextField
                 id="outlined-basic"
