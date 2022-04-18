@@ -22,7 +22,7 @@ import {
 } from "recharts";
 
 import "../../App.css";
-import { Button, Card, TextField, TextareaAutosize } from "@mui/material";
+import { button, Card, TextField, TextareaAutosize } from "@mui/material";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -169,8 +169,10 @@ export default function MoodTrackingSection(props) {
             </div>
           ) : (
             <div id="mood-input">
-              <div>
-                <p class="triangle-right">How Are You Feeling Today? </p>
+              <div id="mood-header">
+                <p class="triangle-right">
+                  <p>How Are You Feeling Today? </p>
+                </p>
                 <img
                   src={props.petInfoRef.siting}
                   style={{
@@ -185,140 +187,141 @@ export default function MoodTrackingSection(props) {
                 id="outlined-basic"
                 label="Write About Today"
                 variant="outlined"
-                rows="4"
+                rows="1"
                 cols="50"
-                style={{ width: "100%" }}
+                style={{ width: "100%", background: "white" }}
                 name="feelings"
                 multiline
                 placeholder="I saw a really cute cat today"
                 onChange={(e) => setJournalEntry(e.target.value)}
               />
               <br />
-              <Card id="mood-enter-card">
-                <div className="mood-buttons">
+              <div id="mood-enter-card">
+                <button
+                  variant="text"
+                  onClick={logMood}
+                  className="mood-button-element">
                   <img src="https://i.imgur.com/UAyXGtN.png" />
                   <br />
-                  <Button
-                    variant="text"
-                    onClick={logMood}
-                    className="mood-button-element">
-                    <p id="random-button">Great</p>
-                  </Button>{" "}
-                </div>
-                <div className="mood-buttons">
+                  <br />
+                  Great
+                </button>{" "}
+                <button
+                  variant="text"
+                  onClick={logMood}
+                  className="mood-button-element">
                   <img src="https://i.imgur.com/iC8yrmj.png" />
                   <br />
-                  <Button
-                    variant="text"
-                    onClick={logMood}
-                    className="mood-button-element">
-                    Good
-                  </Button>{" "}
-                </div>
-                <div className="mood-buttons">
+                  <br />
+                  Good
+                </button>{" "}
+                <button
+                  variant="text"
+                  onClick={logMood}
+                  className="mood-button-element">
                   <img src="https://i.imgur.com/rBTztNW.png" />
                   <br />
-                  <Button
-                    variant="text"
-                    onClick={logMood}
-                    className="mood-button-element">
-                    Eh
-                  </Button>{" "}
-                </div>
-                <div className="mood-buttons">
+                  <br />
+                  Eh
+                </button>{" "}
+                <button
+                  variant="text"
+                  onClick={logMood}
+                  className="mood-button-element">
                   <img src="https://i.imgur.com/XjvisxP.png" />
                   <br />
-                  <Button
-                    variant="text"
-                    onClick={logMood}
-                    className="mood-button-element">
-                    Not Great
-                  </Button>{" "}
-                </div>
-                <div className="mood-buttons">
+                  <br />
+                  Not Great
+                </button>{" "}
+                <button
+                  variant="text"
+                  onClick={logMood}
+                  className="mood-button-element">
                   <img src="https://i.imgur.com/B09Ihcf.png" />
                   <br />
-                  <Button
-                    variant="text"
-                    onClick={logMood}
-                    className="mood-button-element">
-                    Terrible
-                  </Button>{" "}
-                </div>
-              </Card>
+                  <br />
+                  Terrible
+                </button>{" "}
+              </div>
             </div>
           )}
         </div>
       ) : (
-        <div>
-          <div>
-            <img src={props.petInfoRef.siting} id="mood-image" />
+        <div id="mood-input">
+          <div id="mood-header">
+            <p class="triangle-right">
+              <p>How Are You Feeling Today? </p>
+            </p>
+            <img
+              src={props.petInfoRef.siting}
+              style={{
+                filter: `hue-rotate(${parseInt(
+                  props.petInfoRef.sliderVal
+                )}deg)`,
+              }}
+              id="mood-image"
+            />
           </div>
           <TextField
             id="outlined-basic"
             label="Write About Today"
             variant="outlined"
-            rows="4"
+            rows="1"
             cols="50"
-            style={{ width: "100%" }}
+            style={{ width: "100%", background: "white" }}
             name="feelings"
             multiline
             placeholder="I saw a really cute cat today"
             onChange={(e) => setJournalEntry(e.target.value)}
           />
           <br />
-          <Card id="mood-enter-card">
-            <div className="mood-buttons">
+          <div id="mood-enter-card">
+            <button
+              variant="text"
+              onClick={logMood}
+              className="mood-button-element">
               <img src="https://i.imgur.com/UAyXGtN.png" />
               <br />
-              <Button
-                variant="text"
-                onClick={logMood}
-                className="mood-button-element">
-                <p id="random-button">Great</p>
-              </Button>{" "}
-            </div>
-            <div className="mood-buttons">
+              <br />
+              Great
+            </button>{" "}
+            <button
+              variant="text"
+              onClick={logMood}
+              className="mood-button-element">
               <img src="https://i.imgur.com/iC8yrmj.png" />
               <br />
-              <Button
-                variant="text"
-                onClick={logMood}
-                className="mood-button-element">
-                Good
-              </Button>{" "}
-            </div>
-            <div className="mood-buttons">
+              <br />
+              Good
+            </button>{" "}
+            <button
+              variant="text"
+              onClick={logMood}
+              className="mood-button-element">
               <img src="https://i.imgur.com/rBTztNW.png" />
               <br />
-              <Button
-                variant="text"
-                onClick={logMood}
-                className="mood-button-element">
-                Eh
-              </Button>{" "}
-            </div>
-            <div className="mood-buttons">
+              <br />
+              Eh
+            </button>{" "}
+            <button
+              variant="text"
+              onClick={logMood}
+              className="mood-button-element">
               <img src="https://i.imgur.com/XjvisxP.png" />
               <br />
-              <Button
-                variant="text"
-                onClick={logMood}
-                className="mood-button-element">
-                Not Great
-              </Button>{" "}
-            </div>
-            <div className="mood-buttons">
+              <br />
+              Not Great
+            </button>{" "}
+            <button
+              variant="text"
+              onClick={logMood}
+              className="mood-button-element">
               <img src="https://i.imgur.com/B09Ihcf.png" />
               <br />
-              <Button
-                variant="text"
-                onClick={logMood}
-                className="mood-button-element">
-                Terrible
-              </Button>{" "}
-            </div>
-          </Card>
+              <br />
+              Terrible
+            </button>{" "}
+          </div>
         </div>
       )}
     </div>

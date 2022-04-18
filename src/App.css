@@ -1,6 +1,9 @@
 @import-normalize;
 @import "./components/componentStyling/colourSchemes.css";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
 body {
   background: linear-gradient(
     158.87deg,
@@ -9,19 +12,22 @@ body {
   );
   margin: 0;
   overflow: hidden;
+  font-family: "Poppins";
 }
 .base-layer {
   background: linear-gradient(110.63deg, #7ba0fd 14.7%, #bc8bfd 82.18%);
 }
 .log-out-button {
   position: absolute;
-  right: 50px;
-  top: 90vh;
+  right: 40px;
+  top: 95vh;
   width: 100px;
-  height: 50px;
+  height: 23px;
   background: #ffffff;
-  border-radius: 4px;
+  border-radius: 34px;
   z-index: 1000;
+  color: #a393fd;
+  border: none;
 }
 #mood-chart {
   width: 40%;
@@ -123,10 +129,26 @@ body {
   box-sizing: border-box;
 }
 #sign-in-image {
-  width: 50%;
+  width: 75%;
+  height: 75vw;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+#sign-in-image img {
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: -10%;
+}
+.stand-button {
+  width: 340px;
+  height: 46px;
+  background: #f7f7f7;
+  border-radius: 34px;
+  border: none;
+  color: #a393fd;
 }
 
 /* Core Sections */
@@ -177,15 +199,29 @@ body {
 #mood-input {
   width: 80%;
   margin: auto;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
 }
 .mood-buttons {
   display: inline-block;
   text-align: center;
-  width: auto;
+  width: 20%;
+  height: auto;
   max-width: clamp(5%, 7%, 20%);
 }
 .mood-button-element {
-  height: 50px;
+  width: 17%;
+  margin: auto;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: white;
 }
 #mood-enter-card {
   margin-top: 25px;
@@ -196,14 +232,15 @@ body {
   text-align: center;
   width: 100%;
   background: #aab8ff;
+  border-radius: 10px;
 }
 #mood-enter-card div {
   margin: auto;
 }
 #mood-image {
-  width: clamp(100px, 100%, 500px);
   display: block;
   margin: auto;
+  width: 50%;
 }
 .triangle-right {
   position: relative;
@@ -213,7 +250,15 @@ body {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  width: 50%;
+  width: 25%;
+  height: 10vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.triangle-right p {
   margin: auto;
 }
 .triangle-right:after {
@@ -230,12 +275,30 @@ body {
 
 @media (min-width: 1200px) {
   #sign-in-image {
-    width: 25%;
+    width: 33%;
   }
   .core-section {
     margin-top: 10%;
   }
+  #mood-image {
+    width: 25%;
+  }
 }
+@media (max-width: 800px) {
+  .mood-button-element {
+    transform: scale(0.7);
+  }
+  .triangle-right {
+    width: 90%;
+  }
+  .triangle-right p {
+    margin: auto;
+  }
+  #mood-image {
+    width: 100%;
+  }
+}
+
 .app {
   background: linear-gradient(110.63deg, #7ba0fd 14.7%, #bc8bfd 82.18%);
 }

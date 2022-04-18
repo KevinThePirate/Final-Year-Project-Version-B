@@ -200,7 +200,7 @@ function App() {
         <div className="base-layer" style={{ color: "white" }}>
           <div class="loading"></div>
           <button onClick={signUserOut} className="log-out-button">
-            Sign Out!
+            Log Out
           </button>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             {!loadingNow && (
@@ -213,8 +213,18 @@ function App() {
                 <TutorialSheet />
               </SwiperSlide>
             )}
+            {petInfoRef.current !== null && (
+              <SwiperSlide>
+                <h1 className="section-title">Moods</h1>
+                <MoodTrackingSection
+                  userInfo={userInfo}
+                  petInfoRef={petInfoRef.current}
+                  xpUp={petRef.current}
+                />
+              </SwiperSlide>
+            )}
             <SwiperSlide>
-              <h1 className="section-title">Virtual Pet</h1>
+              <h1 className="section-title">Pet</h1>
               <VirtualPet
                 userInfo={userInfo}
                 ref={petRef}
@@ -237,16 +247,6 @@ function App() {
                   petInfoRef={petInfoRef.current}
                   closestNumber={closestNumber}
                   id="Habit-Section"
-                />
-              </SwiperSlide>
-            )}
-            {petInfoRef.current !== null && (
-              <SwiperSlide>
-                <h1 className="section-title">Moods</h1>
-                <MoodTrackingSection
-                  userInfo={userInfo}
-                  petInfoRef={petInfoRef.current}
-                  xpUp={petRef.current}
                 />
               </SwiperSlide>
             )}
