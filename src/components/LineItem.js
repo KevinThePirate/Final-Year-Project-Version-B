@@ -62,15 +62,24 @@ export default function LineItem(props) {
   }, []);
   return (
     <Accordion
-      className={classList + " line-item"}
-      style={{ borderRadius: "20px", border: "none" }}>
+      className={" line-item"}
+      style={{
+        borderRadius: "20px",
+        border: "none",
+        display: "flex",
+        alignItems: "center",
+      }}>
       <AccordionSummary
         aria-controls="panel1a-content"
         id="panel1a-header"
-        expandIcon={<MdExpandMore />}>
+        expandIcon={<MdExpandMore />}
+        style={{
+          alignSelf: "center",
+          height: "75px",
+        }}>
         <Typography>{props.item.title}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails className={classList}>
         {props.item.precreated && (
           <>
             <p>Today: {equation.replace("X", props.item.checkInCounter)}</p>

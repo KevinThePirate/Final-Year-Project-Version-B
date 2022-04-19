@@ -114,7 +114,7 @@ export default function VirtualPetHUD(props) {
           <section>
             {props.petInfo.neutral ? (
               <>
-                <p class="triangle-right">
+                <p class="triangle-right" id="pet-speaking">
                   <p>How Are You Feeling Today? </p>
                 </p>
                 <img

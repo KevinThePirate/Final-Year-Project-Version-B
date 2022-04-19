@@ -54,9 +54,9 @@ export default function AddItem(props, { handleClose, text }) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target);
+    /* console.log(e.target);
     console.log({ title });
-    console.log(addingHabits);
+    console.log(addingHabits); */
     addingHabits.forEach((habit) => {
       console.log(habit);
       addDoc(collection(db, `users/${props.user.uid}/todos`), {
@@ -114,7 +114,7 @@ export default function AddItem(props, { handleClose, text }) {
           <div className="input_container">
             <input
               type="text"
-              placeholder="Title"
+              placeholder="Name Your Habit"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />

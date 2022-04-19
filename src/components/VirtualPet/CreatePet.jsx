@@ -87,6 +87,7 @@ export default function CreatePet(props) {
             {imageArray.length > 0 &&
               imageArray.map((image, index) => (
                 <div
+                  className="image-choices"
                   style={{
                     filter: `hue-rotate(${sliderVal}deg)`,
                   }}>

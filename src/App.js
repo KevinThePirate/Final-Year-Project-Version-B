@@ -223,15 +223,7 @@ function App() {
                 />
               </SwiperSlide>
             )}
-            <SwiperSlide>
-              <h1 className="section-title">Pet</h1>
-              <VirtualPet
-                userInfo={userInfo}
-                ref={petRef}
-                petRef={petRef}
-                petInfoRef={petInfoRef}
-              />
-            </SwiperSlide>
+
             {petInfoRef.current !== null && (
               <SwiperSlide>
                 <h1 className="section-title">Habits</h1>
@@ -250,6 +242,15 @@ function App() {
                 />
               </SwiperSlide>
             )}
+            <SwiperSlide>
+              <h1 className="section-title">Pet</h1>
+              <VirtualPet
+                userInfo={userInfo}
+                ref={petRef}
+                petRef={petRef}
+                petInfoRef={petInfoRef}
+              />
+            </SwiperSlide>
           </Swiper>
         </div>
       ) : (

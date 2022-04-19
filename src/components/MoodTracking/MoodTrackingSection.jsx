@@ -30,8 +30,6 @@ const CustomTooltip = ({ active, payload, label }) => {
       <div className="custom-tooltip">
         <p>Date: {payload[0].payload.createdAt}</p>
         <p>Mood: {payload[0].payload.mood}</p>
-        <p>Mood Disp: {payload[0].payload.moodDisp}</p>
-        <p>Numerical Score: {payload[0].payload.moodValue}</p>
         {payload[0].payload.log && <p>Log: {payload[0].payload.log}</p>}
       </div>
     );
@@ -145,7 +143,7 @@ export default function MoodTrackingSection(props) {
                 height={300}
                 data={moodLog}
                 margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                <Line type="monotone" dataKey="moodValue" stroke="#f9bc60" />
+                <Line type="monotone" dataKey="moodValue" stroke="#496ECB" />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <XAxis dataKey="Mood">
                   <Label
