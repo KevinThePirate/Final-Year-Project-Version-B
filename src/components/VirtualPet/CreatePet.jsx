@@ -101,13 +101,36 @@ export default function CreatePet(props) {
               ))}
           </div>
           <p>Change The Colour</p>
-          <input
-            type="range"
-            min="1"
-            max="360"
-            value={sliderVal}
-            onChange={handleSlider}
-          />
+          <button
+            className="test-button"
+            onClick={handleSlider}
+            value="0"
+            style={{ filter: `hue-rotate(0deg)` }}></button>
+          <button
+            className="test-button"
+            onClick={handleSlider}
+            value="60"
+            style={{ filter: `hue-rotate(60deg)` }}></button>
+          <button
+            className="test-button"
+            onClick={handleSlider}
+            value="120"
+            style={{ filter: `hue-rotate(120deg)` }}></button>
+          <button
+            className="test-button"
+            onClick={handleSlider}
+            value="180"
+            style={{ filter: `hue-rotate(180deg)` }}></button>
+          <button
+            className="test-button"
+            onClick={handleSlider}
+            value="240"
+            style={{ filter: `hue-rotate(240deg)` }}></button>
+          <button
+            className="test-button"
+            onClick={handleSlider}
+            value="300"
+            style={{ filter: `hue-rotate(300deg)` }}></button>
           <br />
           <button>Create Pet!</button>
         </section>

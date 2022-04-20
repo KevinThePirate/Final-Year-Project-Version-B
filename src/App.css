@@ -300,6 +300,12 @@ button {
   width: 50%;
   display: inline-block;
 }
+.test-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: #ab9ce8;
+}
 
 @media (min-width: 1200px) {
   #sign-in-image {
@@ -309,6 +315,9 @@ button {
     margin-top: 10%;
   }
   #mood-image {
+    width: 25%;
+  }
+  .image-choices {
     width: 25%;
   }
 }
