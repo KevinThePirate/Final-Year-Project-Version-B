@@ -70,11 +70,11 @@ export default function MoodTrackingSection(props) {
     getDocs(sortedItemsQuery)
       .then((snapshot) => {
         totalIndex = snapshot.docs.length;
-        console.log(totalIndex);
+        console.log({ totalIndex });
       })
       .then(() => {
         console.log({ totalIndex });
-        const mood = e.target.textContent;
+        const mood = e.target.value;
         switch (mood) {
           case "Great":
             moodVal = 5;
@@ -196,6 +196,7 @@ export default function MoodTrackingSection(props) {
               <br />
               <div id="mood-enter-card">
                 <button
+                  value="Great"
                   variant="text"
                   onClick={logMood}
                   className="mood-button-element">
@@ -205,6 +206,7 @@ export default function MoodTrackingSection(props) {
                   Great
                 </button>{" "}
                 <button
+                  value="Good"
                   variant="text"
                   onClick={logMood}
                   className="mood-button-element">
@@ -214,6 +216,7 @@ export default function MoodTrackingSection(props) {
                   Good
                 </button>{" "}
                 <button
+                  value="Eh"
                   variant="text"
                   onClick={logMood}
                   className="mood-button-element">
@@ -223,6 +226,7 @@ export default function MoodTrackingSection(props) {
                   Eh
                 </button>{" "}
                 <button
+                  value="Not Great"
                   variant="text"
                   onClick={logMood}
                   className="mood-button-element">
@@ -232,6 +236,7 @@ export default function MoodTrackingSection(props) {
                   Not Great
                 </button>{" "}
                 <button
+                  value="Terrible"
                   variant="text"
                   onClick={logMood}
                   className="mood-button-element">
@@ -275,6 +280,7 @@ export default function MoodTrackingSection(props) {
           <br />
           <div id="mood-enter-card">
             <button
+              value="Great"
               variant="text"
               onClick={logMood}
               className="mood-button-element">
@@ -284,6 +290,7 @@ export default function MoodTrackingSection(props) {
               Great
             </button>{" "}
             <button
+              value="Good"
               variant="text"
               onClick={logMood}
               className="mood-button-element">
@@ -293,6 +300,7 @@ export default function MoodTrackingSection(props) {
               Good
             </button>{" "}
             <button
+              value="Eh"
               variant="text"
               onClick={logMood}
               className="mood-button-element">
@@ -302,6 +310,7 @@ export default function MoodTrackingSection(props) {
               Eh
             </button>{" "}
             <button
+              value="Not Great"
               variant="text"
               onClick={logMood}
               className="mood-button-element">
@@ -311,6 +320,7 @@ export default function MoodTrackingSection(props) {
               Not Great
             </button>{" "}
             <button
+              value="Terrible"
               variant="text"
               onClick={logMood}
               className="mood-button-element">
