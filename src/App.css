@@ -20,7 +20,7 @@ body {
 }
 .log-out-button {
   position: absolute;
-  right: 40px;
+  right: 5px;
   top: 95vh;
   width: 100px;
   height: 23px;
@@ -291,20 +291,34 @@ button {
   justify-content: center;
 }
 #pet-section > * {
-  margin-top: -20vh;
+  margin-top: 20vh;
 }
 #pet-speaking {
   width: 70%;
 }
 .image-choices {
-  width: 50%;
+  width: clamp(25%, 100%, 100%);
   display: inline-block;
 }
 .test-button {
-  width: 50px;
-  height: 50px;
+  width: 10%;
+  height: 10vw;
   border: none;
   background: #ab9ce8;
+}
+#tutorial-list {
+  all: unset;
+  width: 75%;
+  text-align: justify;
+  line-height: unset;
+  padding-left: 0;
+}
+#tutorial-list li {
+  display: block;
+  list-style-type: disc;
+  width: 100%;
+  height: auto;
+  padding-left: 0;
 }
 
 @media (min-width: 1200px) {
@@ -319,6 +333,9 @@ button {
   }
   .image-choices {
     width: 25%;
+  }
+  #pet-section > * {
+    margin-top: 0vh;
   }
 }
 @media (max-width: 800px) {

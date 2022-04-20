@@ -210,6 +210,7 @@ function App() {
             )}
             {userItems.length == 0 && (
               <SwiperSlide>
+                <h1 className="section-title">Welcome to Observo!</h1>
                 <TutorialSheet />
               </SwiperSlide>
             )}
