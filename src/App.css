@@ -321,7 +321,7 @@ button {
   padding-left: 0;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   #sign-in-image {
     width: 33%;
   }
@@ -338,6 +338,11 @@ button {
     margin-top: 0vh;
   }
 }
+@media (min-width: 600px) {
+  #pet-section > * {
+    margin-top: -10vh;
+  }
+}
 @media (max-width: 800px) {
   .mood-button-element {
     transform: scale(0.7);
@@ -349,7 +354,7 @@ button {
     margin: auto;
   }
   #mood-image {
-    width: 100%;
+    width: 75%;
   }
 }
 

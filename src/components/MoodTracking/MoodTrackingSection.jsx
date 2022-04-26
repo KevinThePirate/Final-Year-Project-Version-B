@@ -66,51 +66,55 @@ export default function MoodTrackingSection(props) {
     setMoodLog(localArr);
   };
 
-  const logMood = (e) => {
-    getDocs(sortedItemsQuery)
-      .then((snapshot) => {
-        totalIndex = snapshot.docs.length;
-        console.log({ totalIndex });
-      })
-      .then(() => {
-        console.log({ totalIndex });
-        const mood = e.target.value;
-        switch (mood) {
-          case "Great":
-            moodVal = 5;
-            moodDisp = "happy";
-            break;
-          case "Good":
-            moodVal = 4;
-            moodDisp = "happy";
-            break;
-          case "Eh":
-            moodVal = 3;
-            moodDisp = "neutral";
-            break;
-          case "Not Great":
-            moodVal = 2;
-            moodDisp = "sad";
-            break;
-          case "Terrible":
-            moodVal = 1;
-            moodDisp = "sad";
-            break;
-          default:
-            moodVal = 3;
-        }
-        addDoc(moodCol, {
-          name: mood,
-          mood: mood,
-          moodValue: moodVal,
-          moodDisp: moodDisp,
-          createdAt: todaysDate,
-          log: journalEntry,
-          index: totalIndex + 1,
+  const logMood = (moodInput) => {
+    if (todaysCheckin == false) {
+      checkInToday(true);
+      getDocs(sortedItemsQuery)
+        .then((snapshot) => {
+          totalIndex = snapshot.docs.length;
+          console.log({ totalIndex });
+        })
+        .then(() => {
+          console.log({ totalIndex });
+          const mood = moodInput;
+          switch (mood) {
+            case "Great":
+              moodVal = 5;
+              moodDisp = "happy";
+              break;
+            case "Good":
+              moodVal = 4;
+              moodDisp = "happy";
+              break;
+            case "Eh":
+              moodVal = 3;
+              moodDisp = "neutral";
+              break;
+            case "Not Great":
+              moodVal = 2;
+              moodDisp = "sad";
+              break;
+            case "Terrible":
+              moodVal = 1;
+              moodDisp = "sad";
+              break;
+            default:
+              moodVal = 3;
+          }
+          addDoc(moodCol, {
+            name: mood,
+            mood: mood,
+            moodValue: moodVal,
+            moodDisp: moodDisp,
+            createdAt: todaysDate,
+            log: journalEntry,
+            index: totalIndex + 1,
+          });
+          updateLog();
         });
-        updateLog();
-        checkInToday(true);
-      });
+    } else {
+      console.log("Already Checked");
+    }
   };
 
   useEffect(() => {
@@ -198,7 +202,7 @@ export default function MoodTrackingSection(props) {
                 <button
                   value="Great"
                   variant="text"
-                  onClick={logMood}
+                  onClick={() => logMood("Great")}
                   className="mood-button-element">
                   <img src="https://i.imgur.com/UAyXGtN.png" />
                   <br />
@@ -208,7 +212,7 @@ export default function MoodTrackingSection(props) {
                 <button
                   value="Good"
                   variant="text"
-                  onClick={logMood}
+                  onClick={() => logMood("Good")}
                   className="mood-button-element">
                   <img src="https://i.imgur.com/iC8yrmj.png" />
                   <br />
@@ -218,7 +222,7 @@ export default function MoodTrackingSection(props) {
                 <button
                   value="Eh"
                   variant="text"
-                  onClick={logMood}
+                  onClick={() => logMood("Eh")}
                   className="mood-button-element">
                   <img src="https://i.imgur.com/rBTztNW.png" />
                   <br />
@@ -228,7 +232,7 @@ export default function MoodTrackingSection(props) {
                 <button
                   value="Not Great"
                   variant="text"
-                  onClick={logMood}
+                  onClick={() => logMood("Not Great")}
                   className="mood-button-element">
                   <img src="https://i.imgur.com/XjvisxP.png" />
                   <br />
@@ -238,7 +242,7 @@ export default function MoodTrackingSection(props) {
                 <button
                   value="Terrible"
                   variant="text"
-                  onClick={logMood}
+                  onClick={() => logMood("Terrible")}
                   className="mood-button-element">
                   <img src="https://i.imgur.com/B09Ihcf.png" />
                   <br />
@@ -282,7 +286,7 @@ export default function MoodTrackingSection(props) {
             <button
               value="Great"
               variant="text"
-              onClick={logMood}
+              onClick={() => logMood("Great")}
               className="mood-button-element">
               <img src="https://i.imgur.com/UAyXGtN.png" />
               <br />
@@ -292,7 +296,7 @@ export default function MoodTrackingSection(props) {
             <button
               value="Good"
               variant="text"
-              onClick={logMood}
+              onClick={() => logMood("Good")}
               className="mood-button-element">
               <img src="https://i.imgur.com/iC8yrmj.png" />
               <br />
@@ -302,7 +306,7 @@ export default function MoodTrackingSection(props) {
             <button
               value="Eh"
               variant="text"
-              onClick={logMood}
+              onClick={() => logMood("Eh")}
               className="mood-button-element">
               <img src="https://i.imgur.com/rBTztNW.png" />
               <br />
@@ -312,7 +316,7 @@ export default function MoodTrackingSection(props) {
             <button
               value="Not Great"
               variant="text"
-              onClick={logMood}
+              onClick={() => logMood("Not Great")}
               className="mood-button-element">
               <img src="https://i.imgur.com/XjvisxP.png" />
               <br />
@@ -322,7 +326,7 @@ export default function MoodTrackingSection(props) {
             <button
               value="Terrible"
               variant="text"
-              onClick={logMood}
+              onClick={() => logMood("Terrible")}
               className="mood-button-element">
               <img src="https://i.imgur.com/B09Ihcf.png" />
               <br />
