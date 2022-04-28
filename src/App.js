@@ -184,7 +184,6 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       setLoadingNow(!loadingNow);
-      console.log("flip");
     }, 5000);
   }, []);
 

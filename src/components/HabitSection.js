@@ -35,6 +35,13 @@ export default function HabitSection(props) {
   };
   return (
     <div className="core-section" id="Habit-Section">
+      <img
+        src={props.petInfoRef.siting}
+        className="mood-pet-corner"
+        style={{
+          filter: `hue-rotate(${parseInt(props.petInfoRef.sliderVal)}deg)`,
+        }}
+      />
       {props.userItems.map((item) => (
         <LineItem
           key={item.id}

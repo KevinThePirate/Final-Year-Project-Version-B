@@ -2,6 +2,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import React from "react";
 import { useState, useEffect } from "react";
 import { db } from "../firebase";
+import { IconContext } from "react-icons";
 import "./componentStyling/LineItem.css";
 import {
   MdCheckBoxOutlineBlank,
@@ -86,15 +87,19 @@ export default function LineItem(props) {
           </>
         )}
         <p>Total Check-Ins: {props.item.checkInCounter}</p>
-        {classList == "checked-in" ? (
-          <MdCheckBox onClick={checkInSelf} className="line-button" />
-        ) : (
-          <MdCheckBoxOutlineBlank
-            onClick={checkInSelf}
-            className="line-button"
-          />
-        )}
-        <MdDeleteForever onClick={deleteSelf} className="line-button" />
+        <IconContext.Provider value={{ color: "#496ECB" }}>
+          {classList == "checked-in" ? (
+            <MdCheckBox onClick={checkInSelf} className="line-button" />
+          ) : (
+            <MdCheckBoxOutlineBlank
+              onClick={checkInSelf}
+              className="line-button"
+            />
+          )}
+        </IconContext.Provider>
+        <IconContext.Provider value={{ color: "#496ECB" }}>
+          <MdDeleteForever onClick={deleteSelf} className="line-button" />
+        </IconContext.Provider>
       </AccordionDetails>
     </Accordion>
   );
