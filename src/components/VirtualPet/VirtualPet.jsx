@@ -18,12 +18,12 @@ function VirtualPet(props) {
   };
   useEffect(() => {
     getDocs(petCol).then((snapshot) => {
-      console.log(snapshot.docs);
+      // console.log(snapshot.docs);
       if (snapshot.docs.length > 0) {
-        console.log("Pet Found");
+        //console.log("Pet Found");
         setPetExists(true);
       } else {
-        console.log("Pet Not Found");
+        //console.log("Pet Not Found");
         setPetExists(false);
       }
     });

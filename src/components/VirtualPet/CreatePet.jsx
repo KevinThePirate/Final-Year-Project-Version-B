@@ -20,7 +20,7 @@ export default function CreatePet(props) {
   const [sliderVal, setSliderVal] = useState(0);
   const inputRef = useRef(null);
   const handleChange = (obj) => {
-    console.log(obj);
+    //console.log(obj);
     setChosenPet(obj);
     /*console.log(typeof e.target.value);
     console.log(imageArray);
@@ -30,9 +30,9 @@ export default function CreatePet(props) {
     setSliderVal(e.target.value);
   };
   const handleNameChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setPetName(e.target.value);
-    console.log(inputRef);
+    //console.log(inputRef);
     if (inputRef !== null) {
       inputRef.current.focus();
     }
@@ -54,7 +54,7 @@ export default function CreatePet(props) {
       //setPetName("");
       props.setPetExists(true);
     }
-    console.log("Submitted");
+    //console.log("Submitted");
   };
   const getImages = () => {
     let petImagesCol = collection(db, "petImages");
@@ -64,7 +64,7 @@ export default function CreatePet(props) {
         arr.push(doc.data());
       });
       setImageArray(arr);
-      console.log({ imageArray });
+      //  console.log({ imageArray });
     });
   };
   useEffect(getImages, []);

@@ -31,17 +31,17 @@ export default function LineItem(props) {
     }
   };
   const deleteSelf = () => {
-    console.log("Run Delete Self");
-    console.log(props.item.id);
+    //console.log("Run Delete Self");
+    // console.log(props.item.id);
     props.handleDelete(props.item.id);
     props.getUserData();
   };
   const checkInSelf = () => {
     if (props.item.lastCheckInDate == todaysDate) {
-      console.log("Already Checked This In, Buddy!");
+      //console.log("Already Checked This In, Buddy!");
     } else {
       props.handleCheckIn(props.item.id, props.item.checkInCounter);
-      console.log(props.item.checkInCounter);
+      // console.log(props.item.checkInCounter);
       props.xpUp(props.item.checkInCounter);
     }
     styling();

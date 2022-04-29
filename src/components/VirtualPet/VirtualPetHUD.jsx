@@ -85,7 +85,7 @@ export default function VirtualPetHUD(props) {
       let levelUp = false;
       if (nextXP >= currentLevelInfo.expRequired) {
         levelUp = true;
-        console.log(levelUp);
+        //console.log(levelUp);
         nextXP = nextXP - currentLevelInfo.expRequired;
         updateDoc(docRef, {
           exp: nextXP,
@@ -101,7 +101,7 @@ export default function VirtualPetHUD(props) {
         props.setPetInfo(snapshot.docs[0].data())
       );
     });
-    console.log("Update");
+    // console.log("Update");
   };
   //const currentLevelInfo = getDocs();
   //const docRef = doc(db, "levelInfo", where("level", "==", petInfo.level));

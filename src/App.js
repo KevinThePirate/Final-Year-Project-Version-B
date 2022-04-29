@@ -117,12 +117,12 @@ function App() {
     getUserData();
   };
   const handleDelete = async (id) => {
-    console.log("delete func");
+    //console.log("delete func");
     await deleteDoc(doc(db, `users/${userInfo.uid}/todos`, id));
   };
 
   const handleCheckIn = async (id, currentCount) => {
-    console.log("base func ran");
+    // console.log("base func ran");
     const docRef = doc(db, `users/${userInfo.uid}/todos`, id);
     let doAmount = Math.min(
       closestNumber(currentCount, 2),
@@ -143,15 +143,15 @@ function App() {
     signOut(authentication)
       .then(() => {
         // Sign-out successful.
-        console.log("Signed Out");
-        console.log(userInfo.displayName);
+        // console.log("Signed Out");
+        // console.log(userInfo.displayName);
         setUserInfo("");
       })
       .catch((error) => {
         // An error happened.
         console.error(error);
       });
-    console.log("Test");
+    //  console.log("Test");
   };
 
   const getStandardHabits = () => {

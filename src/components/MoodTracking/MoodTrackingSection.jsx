@@ -72,10 +72,10 @@ export default function MoodTrackingSection(props) {
       getDocs(sortedItemsQuery)
         .then((snapshot) => {
           totalIndex = snapshot.docs.length;
-          console.log({ totalIndex });
+          //console.log({ totalIndex });
         })
         .then(() => {
-          console.log({ totalIndex });
+          //console.log({ totalIndex });
           const mood = moodInput;
           switch (mood) {
             case "Great":
@@ -126,11 +126,11 @@ export default function MoodTrackingSection(props) {
         //console.log("Found");
         checkInToday(true);
       } else {
-        console.log("Not Found");
+        //  console.log("Not Found");
         checkInToday(false);
       }
     });
-    console.log(q);
+    //console.log(q);
   }, []);
   // console.log(props.petInfoRef.siting);
   return (

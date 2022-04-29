@@ -38,8 +38,8 @@ export default function AddItem(props, { handleClose, text }) {
 
   const [addingHabits, setAddingHabbits] = useState([]);
   const checkboxTogglerValue = (id) => {
-    console.log(id.target.checked);
-    console.log(id.target);
+    //console.log(id.target.checked);
+    //console.log(id.target);
     if (id.target.checked && addingHabits.indexOf(id.target.name) == -1) {
       setAddingHabbits([...addingHabits, id.target.name]);
     }
@@ -50,7 +50,7 @@ export default function AddItem(props, { handleClose, text }) {
         setAddingHabbits(tempArr);
       }
     }
-    console.log(addingHabits);
+    //console.log(addingHabits);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ export default function AddItem(props, { handleClose, text }) {
     console.log({ title });
     console.log(addingHabits); */
     addingHabits.forEach((habit) => {
-      console.log(habit);
+      //console.log(habit);
       addDoc(collection(db, `users/${props.user.uid}/todos`), {
         title: habit,
         createdAt: new Date(),

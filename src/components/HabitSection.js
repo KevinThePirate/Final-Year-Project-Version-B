@@ -9,9 +9,9 @@ import LineItem from "./LineItem";
 export default function HabitSection(props) {
   const [sentences, setSentences] = useState([]);
   const handleSignOut = () => {
-    console.log(props.userInfo.displayName);
+    //console.log(props.userInfo.displayName);
     props.signUserOut();
-    console.log(props.userInfo.displayName);
+    //console.log(props.userInfo.displayName);
   };
 
   const [modalOpen, setModalOpen] = useState(false);
